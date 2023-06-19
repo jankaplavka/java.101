@@ -1,2 +1,4 @@
-# java.101
-moj prvy kurz o jave
+# Java 101
+
+toto je moj prvy kurz o jave
+bla bla bla
