@@ -6,4 +6,4 @@ zmena
 
 a toto je už druhý deň
 
-dalsi prirastok do suboru
+dalsi prirastok do suboru readme
