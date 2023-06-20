@@ -3,3 +3,5 @@
 toto je moj prvy kurz o jave
 bla bla bla
 zmena
+
+a toto je už druhý deň
