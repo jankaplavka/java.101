@@ -5,3 +5,5 @@ bla bla bla
 zmena
 
 a toto je už druhý deň
+
+dalsi prirastok do suboru
