@@ -7,3 +7,5 @@ zmena
 a toto je už druhý deň
 
 dalsi prirastok do suboru readme
+
+a toto je megazmena
