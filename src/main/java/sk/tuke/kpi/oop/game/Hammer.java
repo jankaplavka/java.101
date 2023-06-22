@@ -19,7 +19,7 @@ public class Hammer extends AbstractActor {
     }
 
 //metoda na puzitie kladiva
-public void use(){
+    public void use(){
         this.usages--;
         if (this.usages==0){
             getScene().removeActor(this);
