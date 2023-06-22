@@ -32,7 +32,6 @@ public class Reactor extends AbstractActor {
             Animation.PlayMode.LOOP_PINGPONG);
 
 
-
         this.brokenAnimation = new Animation(
             "sprites/reactor_broken.png",
             80, 80, 0.1F,
@@ -50,7 +49,7 @@ public class Reactor extends AbstractActor {
     }
 
     public void increaseTemperature(int increment) {
-        if (increment < 0) {
+        if (increment < 0 || !isRunning()) {
             return;
         }
         this.temperature = this.temperature + increment;
@@ -76,6 +75,7 @@ public class Reactor extends AbstractActor {
         if (this.temperature > 2000) {
             if (this.temperature > 6000) {
                 this.damage = 100;
+                this.state=false;
             } else {
                 int damage = (this.temperature / 40) - 50;
                 if (damage > this.damage) {
@@ -88,7 +88,7 @@ public class Reactor extends AbstractActor {
 
 
     public void decreaseTempreature(int decrement) {
-        if (decrement < 0) {
+        if (decrement < 0 || !isRunning()) {
             return;
         }
         this.temperature = this.temperature - decrement;
@@ -96,16 +96,26 @@ public class Reactor extends AbstractActor {
             return;
         }
         updateAnimation();
+    }
 
+    public void turnOn() {
+        if (this.damage==100){
+            return;
+        }
+        setAnimation(normalAnimation);
+        this.state = true;
+        getAnimation().play();
+    }
 
+    public void turnOff() {
+        this.state = false;
+        if (this.damage==100){
+            return;
+        }
+        getAnimation().pause();
     }
-    public void turnOn(){
-        this.state=true;
-    }
-    public void turnOff(){
-        this.state=false;
-    }
-    public boolean isRunning(){
+
+    public boolean isRunning() {
         return this.state;
     }
 
@@ -121,7 +131,6 @@ public class Reactor extends AbstractActor {
             } else
                 //      normalna animacia
                 if (this.temperature < 4000) {
-
                     setAnimation(this.normalAnimation);
                 }
 
