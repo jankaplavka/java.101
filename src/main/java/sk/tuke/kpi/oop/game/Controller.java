@@ -12,5 +12,12 @@ public class Controller extends AbstractActor{
         setAnimation(animation);
 
     }
+    public void toggle(){
+
+        if (this.reactor.isRunning()==true){
+            this.reactor.turnOff();
+        }
+        else this.reactor.turnOn();
+    }
 
 }
