@@ -11,8 +11,8 @@ public class Reactor extends AbstractActor {
     private Animation hotAnimation;
     private Animation brokenAnimation;
     private Animation offAnimation;
-
     private boolean isRunning;
+    private Light light;
 
     public Reactor() {
         this.temperature = 0;
@@ -167,6 +167,12 @@ public class Reactor extends AbstractActor {
             updateAnimation();
         }
     }
+//    pridavanie svetla
+    public void addLight(Light light){
+        this.light = light;
+    }
+
+
 
 
 }
